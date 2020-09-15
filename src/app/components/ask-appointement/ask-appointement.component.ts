@@ -7,14 +7,16 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class AskAppointementComponent implements OnInit {
   canClose = false;
-  @Output() closeModalEvent = new EventEmitter<boolean>();
+  reasonList=['Consultation de suivi', 'Retour examen', 'Premiere consultation'];
 
+
+  @Output() closeModalEvent = new EventEmitter<boolean>();
   constructor() {}
 
   ngOnInit(): void {}
 
   addAppointment() {
-    alert('Hello world!');
+    console.log()
   }
 
   closeModal() {

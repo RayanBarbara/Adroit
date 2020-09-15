@@ -46,7 +46,7 @@ class Practitioner {
   telecom: any[];
   adress: any[];
   gender: Gender;
-  birthDate: Date;
+  birthDate:string;
   photo: any[];
   qualification: any[];
 }
@@ -62,8 +62,8 @@ class Name {
 }
 
 class Period {
-  start: Date;
-  end: Date;
+  start: string;
+  end: string;
 }
 
 enum Gender {

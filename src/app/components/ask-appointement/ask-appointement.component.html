@@ -19,10 +19,7 @@
                     <span>Reason</span>
                 </label>
                 <select id="appointmentReason" type="text" required>
-                    <option>---Please select a reason---</option>
-                    <option value="Reason1">Reason1</option>
-                    <option value="Reason2">Reason2</option>
-                    <option value="Reason3">Reason3</option>
+                    <option [value]="reason" *ngFor="let reason of reasonList">{{reason}}</option>
                 </select>
             </div>
             <div id="Comment">
