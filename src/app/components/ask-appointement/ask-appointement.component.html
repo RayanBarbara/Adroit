@@ -1,1 +1,40 @@
-<p>ask-appointement works!</p>
+<div id="Appointment">
+    <div id="addAppointmentForm">
+        <h2>Take appointment with Dr. [ Add name here ]</h2>
+        <form (submit)="addAppointment()">
+            <div id="Date">
+                <label for="appointmentDate">
+                    <span>Date</span>
+                </label>
+                <input id="appointmentDate" type="date" required>
+            </div>
+            <div id="Hour">
+                <label for="appointmentHour">
+                    <span>Hour</span>
+                </label>
+                <input id="appointmentHour" type="time" min="09:00" max="17:00" required>
+            </div>
+            <div id="Reason">
+                <label for="appointmentReason">
+                    <span>Reason</span>
+                </label>
+                <select id="appointmentReason" type="text" required>
+                    <option>---Please select a reason---</option>
+                    <option value="Reason1">Reason1</option>
+                    <option value="Reason2">Reason2</option>
+                    <option value="Reason3">Reason3</option>
+                </select>
+            </div>
+            <div id="Comment">
+                <label for="appointmentComment">
+                    <span>Comment</span>
+                </label>
+                <input id="appointmentComment" type="text">
+                <div id="appointmentButtons">
+                    <button id="cancelAppointment" type="reset">Cancel</button>
+                    <button id="confirmAppointment" type="submit">Confirm</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

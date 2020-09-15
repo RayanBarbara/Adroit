@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-ask-appointement',
@@ -10,6 +11,10 @@ export class AskAppointementComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addAppointment(){
+    alert("Hello world!");
   }
 
 }
