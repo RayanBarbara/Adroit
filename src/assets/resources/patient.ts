@@ -1,3 +1,4 @@
+import { Code } from './code';
 export class Patient {
   id: string;
   _id: string;
@@ -39,18 +40,21 @@ export class Patient {
   link: string[];
 }
 
-class Practitioner {
+export class Practitioner {
   identifier: string;
   active: boolean;
   name: Name[];
   telecom: any[];
   adress: Adress[];
   gender: Gender;
-  birthDate:string;
+  birthDate: string;
   photo: any[];
-  qualification: any[];
+  qualification: Qualification[];
 }
 
+class Qualification {
+  code: Code;
+}
 class Name {
   use: NameUse;
   text: string;

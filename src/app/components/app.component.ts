@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Patient } from '../../assets/resources/patient';
+import { Observation } from '../../assets/resources/observation';
+import { Patient, Practitioner } from '../../assets/resources/patient';
 import { RestService } from '../services/rest.service';
 import { delay } from '../utils/delay.function';
 
@@ -10,6 +11,8 @@ import { delay } from '../utils/delay.function';
 })
 export class AppComponent {
   patient: Patient;
+  practitioner: Practitioner;
+  observation: Observation[];
   page: string;
 
   constructor(private service: RestService) {
@@ -17,7 +20,16 @@ export class AppComponent {
       this.patient = patient;
       await delay(0);
       this.page = 'profile';
-      console.log(this.patient);
+    });
+    service.getPractitioner().then((practitioner) => {
+      this.practitioner = practitioner;
+    });
+    service.getObservation().then((observation) => {
+      console.log(observation);
+      this.observation = observation.filter((obs) => {
+        obs.subject.id === this.patient.id;
+      });
+      console.log(this.observation);
     });
   }
 

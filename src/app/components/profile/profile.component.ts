@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Gender, Patient } from '../../../assets/resources/patient';
+import {
+  Gender,
+  Patient,
+  Practitioner,
+} from '../../../assets/resources/patient';
 
 @Component({
   selector: 'app-profile',
@@ -8,6 +12,7 @@ import { Gender, Patient } from '../../../assets/resources/patient';
 })
 export class ProfileComponent implements OnInit {
   @Input() patient: Patient;
+  @Input() practitioner: Practitioner;
   @Output() page = new EventEmitter<string>();
   avatar = '../../../assets/resources/avatar_homme.svg';
 

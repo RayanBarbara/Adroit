@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Patient } from '../../assets/resources/patient';
+import { Observation } from '../../assets/resources/observation';
+import { Patient, Practitioner } from '../../assets/resources/patient';
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +9,7 @@ import { Patient } from '../../assets/resources/patient';
 export class RestService {
   server = 'https://fhir.eole-consulting.io/api/';
   patientID = '5f5f85553ef92800151f13a7';
+  gpID = ['5f5f82fe3ef92800151f13a6', 'magicSystem2020'];
 
   constructor(private http: HttpClient) {}
 
@@ -28,6 +30,19 @@ export class RestService {
   getPatient(): Promise<Patient> {
     return this.http
       .get(this.server + 'patient/' + this.patientID)
+      .toPromise()
+      .catch(this.handleError);
+  }
+  getPractitioner(): Promise<Practitioner> {
+    return this.http
+      .get(this.server + 'practitioner/' + this.gpID[1])
+      .toPromise()
+      .catch(this.handleError);
+  }
+
+  getObservation(): Promise<Observation[]> {
+    return this.http
+      .get(this.server + 'observation')
       .toPromise()
       .catch(this.handleError);
   }

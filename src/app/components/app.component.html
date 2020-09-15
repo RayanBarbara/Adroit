@@ -1,6 +1,7 @@
 <app-profile
   *ngIf="page === 'profile'"
   [patient]="patient"
+  [practitioner]="practitioner"
   (page)="navigate($event)"
 ></app-profile>
 <app-results *ngIf="page === 'results'" (page)="navigate($event)"></app-results>
