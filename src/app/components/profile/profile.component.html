@@ -1,1 +1,25 @@
-<p>profile works!</p>
+<h1>Patient profile</h1>
+<div class="patient-data">
+  <img src="../../../assets/resources/avatar_homme.svg" />
+  <span><b>Lastname :</b> {{ patient.name[0].family }}</span>
+  <span><b>Firstname :</b> {{ patient.name[0].given }}</span>
+  <span><b>Birthsate :</b> {{ patient.birthDate }}</span>
+  <span><b>Gender :</b> {{ patient.gender }}</span>
+  <span><b>id :</b> {{ patient.id }}</span>
+  <span
+    ><b>Address :</b>
+    <ul>
+      <li *ngFor="let address of patient.address">{{ address }}</li>
+    </ul></span
+  >
+</div>
+<h1>General practitioners</h1>
+<div class="practitioners">
+  <div *ngFor="let practitioner of patient?.generalPractitioner">
+    M.D. {{ practitioner.name[0].family }}
+    {{ practitioner.name[0].given[0] }}
+  </div>
+</div>
+<div class="nav">
+  <div class="button" (click)="navigate('results')">See exams and results</div>
+</div>

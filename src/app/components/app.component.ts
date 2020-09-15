@@ -18,7 +18,7 @@ export class AppComponent {
   }
 
   title = 'adroit';
-  page: string;
+  page = 'profile';
   navigate(page) {
     this.page = page;
   }

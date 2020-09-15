@@ -1,42 +1,69 @@
 export class Patient {
   id: string;
   _id: string;
-  extension: [string];
+  extension: string[];
   meta: string;
   implicitRules: string;
   _implicitRules: string;
   language: string;
   _language: string;
   text: string;
-  contained: [string];
-  modifierExtension: [string];
+  contained: string[];
+  modifierExtension: string[];
   resourceType: resourceType;
-  identifier: [string];
-  active: true;
+  identifier: string[];
+  active: boolean;
   _active: string;
-  name: [string];
-  telecom: [string];
+  name: Name[];
+  telecom: string[];
   gender: Gender;
   _gender: string;
   birthDate: any;
   _birthDate: string;
-  deceasedBoolean: true;
+  deceasedBoolean: boolean;
   _deceasedBoolean: string;
   deceasedDateTime: string;
   _deceasedDateTime: string;
-  address: [string];
+  address: string[];
   maritalStatus: string;
-  multipleBirthBoolean: true;
+  multipleBirthBoolean: boolean;
   _multipleBirthBoolean: string;
   multipleBirthInteger: 0;
   _multipleBirthInteger: string;
-  photo: [string];
-  contact: [string];
+  photo: any[];
+  contact: string[];
   animal: string;
-  communication: [string];
-  generalPractitioner: [string];
+  communication: string[];
+  generalPractitioner: Practitioner[];
   managingOrganization: string;
-  link: [string];
+  link: string[];
+}
+
+class Practitioner {
+  identifier: string;
+  active: boolean;
+  name: Name[];
+  telecom: any[];
+  adress: any[];
+  gender: Gender;
+  birthDate: Date;
+  photo: any[];
+  qualification: any[];
+}
+
+class Name {
+  use: NameUse;
+  text: string;
+  family: string;
+  given: string[];
+  prefix: string[];
+  suffix: string[];
+  period: Period;
+}
+
+class Period {
+  start: Date;
+  end: Date;
 }
 
 enum Gender {
@@ -46,4 +73,14 @@ enum Gender {
 
 enum resourceType {
   'Patient',
+}
+
+enum NameUse {
+  'usual',
+  'official',
+  'temp',
+  'nickname',
+  'anonymous',
+  'old',
+  'maiden',
 }
