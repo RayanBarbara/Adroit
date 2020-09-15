@@ -1,4 +1,4 @@
-export class appointments {
+export class Appointment {
     id: string;
     _id: string;
     extension: string[];

@@ -1,7 +1,7 @@
 <div><div id="Appointment" class="modal" (clickOutside)="closeModal()">
     <div id="addAppointmentForm">
         <h2>Take appointment with Dr. [ Add name here ]</h2>
-        <form (submit)="addAppointment()">
+        <form (submit)="send()">
             <div id="Date">
                 <label for="appointmentDate">
                     <span>Date</span>
@@ -12,14 +12,14 @@
                 <label for="appointmentHour">
                     <span>Hour</span>
                 </label>
-                <input id="appointmentHour" type="time" min="09:00" max="17:00" required>
+                <input id="appointmentHour" [(ngModel)]="appointment.requestedPeriod.hour" type="time" min="09:00" max="17:00" required>
             </div>
             <div id="Reason">
                 <label for="appointmentReason">
                     <span>Reason</span>
                 </label>
-                <select id="appointmentReason" type="text" required>
-                    <option [value]="reason" *ngFor="let reason of reasonList">{{reason}}</option>
+                <select id="appointmentReason" name="reason" type="text" [(ngModel)]="appointment.reason" required>
+                    <option *ngFor="let reason of reasonList" [ngValue]="reason">{{reason}}</option>
                 </select>
             </div>
             <div id="Comment">
@@ -28,7 +28,7 @@
                 </label>
                 <input id="appointmentComment" type="text">
                 <div id="appointmentButtons">
-                    <button id="cancelAppointment" type="reset"(click)="closeModal()">Cancel</button>
+                    <button id="cancelAppointment" type="reset" (click)="closeModal()">Cancel</button>
                     <button id="confirmAppointment" type="submit">Confirm</button>
                 </div>
             </div>
