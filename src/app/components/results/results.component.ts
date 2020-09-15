@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class ResultsComponent implements OnInit {
   askAppointment = false;
   constructor() {}
-  askForAnAppointment() {
-    this.askAppointment = true;
+  askForAnAppointment(ask: boolean) {
+    console.log('ask'+ask);
+    this.askAppointment = !this.askAppointment;
+    console.log(this.askAppointment);
   }
   ngOnInit(): void {}
 }

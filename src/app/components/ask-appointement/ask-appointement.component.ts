@@ -9,7 +9,8 @@ import { FormBuilder } from '@angular/forms';
 export class AskAppointementComponent implements OnInit {
   canClose = false;
   modal: string=null;
-  @Output() closeModalEvent = new EventEmitter<void>();
+  @Output() closeModalEvent = new EventEmitter<boolean>();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -20,8 +21,9 @@ export class AskAppointementComponent implements OnInit {
   }
 
   closeModal() {
-    if (this.canClose==false) {
-      this.closeModalEvent.emit();
+    console.log("Test");
+    if (this.canClose===true) {
+      this.closeModalEvent.emit(false);
     } else {
       this.canClose = true;
     }
