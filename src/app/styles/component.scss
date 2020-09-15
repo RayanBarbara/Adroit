@@ -1,3 +1,23 @@
+@import './variables.scss';
+
 :host {
   flex-grow: 1;
+}
+
+.button {
+  width: fit-content;
+  padding: 10px;
+  border-radius: 5px;
+  background: $blue-light;
+  cursor: pointer;
+  box-shadow: $shadow;
+}
+
+.button-cancel {
+  width: fit-content;
+  padding: 10px;
+  border-radius: 5px;
+  background: $red-light;
+  cursor: pointer;
+  box-shadow: $shadow;
 }

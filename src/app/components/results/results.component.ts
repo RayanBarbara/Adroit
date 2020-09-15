@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-results',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./results.component.scss'],
 })
 export class ResultsComponent implements OnInit {
+  @Output() page = new EventEmitter<string>();
   askAppointment = false;
   constructor() {}
   askForAnAppointment() {
     this.askAppointment = !this.askAppointment;
+  }
+  navigate(page: string) {
+    this.page.emit(page);
   }
   ngOnInit(): void {}
 }

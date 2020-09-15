@@ -24,7 +24,7 @@ export class Patient {
   _deceasedBoolean: string;
   deceasedDateTime: string;
   _deceasedDateTime: string;
-  address: string[];
+  address: Adress[];
   maritalStatus: string;
   multipleBirthBoolean: boolean;
   _multipleBirthBoolean: string;
@@ -44,7 +44,7 @@ class Practitioner {
   active: boolean;
   name: Name[];
   telecom: any[];
-  adress: any[];
+  adress: Adress[];
   gender: Gender;
   birthDate: Date;
   photo: any[];
@@ -66,7 +66,13 @@ class Period {
   end: Date;
 }
 
-enum Gender {
+class Adress {
+  line: string[];
+  city: string;
+  postalCode: number;
+}
+
+export enum Gender {
   'male',
   'female',
 }

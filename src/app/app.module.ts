@@ -8,6 +8,7 @@ import { AskAppointementComponent } from './components/ask-appointement/ask-appo
 import { ProfileComponent } from './components/profile/profile.component';
 import { ResultsComponent } from './components/results/results.component';
 import { RestService } from './services/rest.service';
+import { DatePipe } from './utils/pipes/date.pipe';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { RestService } from './services/rest.service';
     ResultsComponent,
     AskAppointementComponent,
     ProfileComponent,
+    DatePipe,
   ],
   imports: [
     HttpClientModule,

@@ -3,4 +3,4 @@
   [patient]="patient"
   (page)="navigate($event)"
 ></app-profile>
-<app-results *ngIf="page === 'results'"></app-results>
+<app-results *ngIf="page === 'results'" (page)="navigate($event)"></app-results>

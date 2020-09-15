@@ -1,15 +1,18 @@
 <h1>Patient profile</h1>
 <div class="patient-data">
-  <img src="../../../assets/resources/avatar_homme.svg" />
+  <img [src]="avatar" />
   <span><b>Lastname :</b> {{ patient.name[0].family }}</span>
-  <span><b>Firstname :</b> {{ patient.name[0].given }}</span>
-  <span><b>Birthsate :</b> {{ patient.birthDate }}</span>
+  <span><b>Firstname :</b> {{ patient.name[0].given[0] }}</span>
+  <span><b>Birthdate :</b> {{ patient.birthDate | date }}</span>
   <span><b>Gender :</b> {{ patient.gender }}</span>
   <span><b>id :</b> {{ patient.id }}</span>
   <span
-    ><b>Address :</b>
+    ><b>Addresses :</b>
     <ul>
-      <li *ngFor="let address of patient.address">{{ address }}</li>
+      <li *ngFor="let address of patient.address">
+        <span *ngFor="let line of address.line">{{ line }}<br /></span
+        >{{ address.postalCode }} {{ address.city }}
+      </li>
     </ul></span
   >
 </div>

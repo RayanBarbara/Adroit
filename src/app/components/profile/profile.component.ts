@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Patient } from '../../../assets/resources/patient';
+import { Gender, Patient } from '../../../assets/resources/patient';
 
 @Component({
   selector: 'app-profile',
@@ -9,8 +9,13 @@ import { Patient } from '../../../assets/resources/patient';
 export class ProfileComponent implements OnInit {
   @Input() patient: Patient;
   @Output() page = new EventEmitter<string>();
+  avatar = '../../../assets/resources/avatar_homme.svg';
 
-  constructor() {}
+  constructor() {
+    if (this.patient && this.patient.gender === Gender['female']) {
+      this.avatar = '../../assets/resources/avatar_femme.svg';
+    }
+  }
 
   navigate(page: string) {
     this.page.emit(page);
