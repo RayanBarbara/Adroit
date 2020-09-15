@@ -1,4 +1,5 @@
 <app-navbar (page)="navigate($event)"></app-navbar>
+<app-profile *ngIf="page === 'profile'"></app-profile>
 <app-results *ngIf="page === 'results'"></app-results>
 <app-ask-appointement
   *ngIf="page === 'ask-appointement'"
