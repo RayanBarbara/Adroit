@@ -11,5 +11,6 @@
 }
 body {
   height: 100vh;
-  background: linear-gradient(#267bcf, #6b32d4, white 300px);
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 150px, $grey-light 150px),
+    linear-gradient(50deg, #267bcf, #6b32d4);
 }
