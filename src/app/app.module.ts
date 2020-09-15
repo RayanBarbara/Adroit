@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { AskAppointementComponent } from './components/ask-appointement/ask-appointement.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ResultsComponent } from './components/results/results.component';
+import { RestService } from './services/rest.service';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { ResultsComponent } from './components/results/results.component';
     AskAppointementComponent,
   ],
   imports: [BrowserModule],
-  providers: [],
+  providers: [RestService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
