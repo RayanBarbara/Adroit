@@ -1,2 +1,5 @@
-<div class="button" (click)="askForAnAppointment(true)">ask Appointment</div>
-<app-ask-appointement *ngIf="askAppointment" (closeModal)="askForAnAppointment($event)"></app-ask-appointement>
+<div class="button" (click)="askForAnAppointment()">ask Appointment</div>
+<app-ask-appointement
+  *ngIf="askAppointment"
+  (closeModalEvent)="askForAnAppointment()"
+></app-ask-appointement>
