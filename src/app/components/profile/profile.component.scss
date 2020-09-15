@@ -9,9 +9,11 @@
     border-radius: 5px;
     padding: 20px;
     height: 150px;
+    max-width: 900px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    line-height: 30px;
     img {
       height: 150px;
       width: 150px;

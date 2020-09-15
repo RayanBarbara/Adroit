@@ -1,37 +1,39 @@
-<div><div id="Appointment" class="modal" (clickOutside)="closeModal()">
-    <div id="addAppointmentForm">
-        <h2>Take appointment with Dr. [ Add name here ]</h2>
-        <form (submit)="addAppointment()">
-            <div id="Date">
-                <label for="appointmentDate">
-                    <span>Date</span>
-                </label>
-                <input id="appointmentDate" type="date" required>
-            </div>
-            <div id="Hour">
-                <label for="appointmentHour">
-                    <span>Hour</span>
-                </label>
-                <input id="appointmentHour" type="time" min="09:00" max="17:00" required>
-            </div>
-            <div id="Reason">
-                <label for="appointmentReason">
-                    <span>Reason</span>
-                </label>
-                <select id="appointmentReason" type="text" required>
-                    <option [value]="reason" *ngFor="let reason of reasonList">{{reason}}</option>
-                </select>
-            </div>
-            <div id="Comment">
-                <label for="appointmentComment">
-                    <span>Comment</span>
-                </label>
-                <input id="appointmentComment" type="text">
-                <div id="appointmentButtons">
-                    <button id="cancelAppointment" type="reset"(click)="closeModal()">Cancel</button>
-                    <button id="confirmAppointment" type="submit">Confirm</button>
-                </div>
-            </div>
-        </form>
-    </div>
+<div>
+  <div id="Appointment" class="modal" (clickOutside)="closeModal()">
+    <h2>Take appointment with Dr. [ Add name here ]</h2>
+    <form (submit)="addAppointment()">
+      <div>
+        <label for="appointmentDate">Date </label>
+        <input id="appointmentDate" type="date" required />
+      </div>
+      <div>
+        <label for="appointmentHour"> Time </label>
+        <input
+          id="appointmentHour"
+          type="time"
+          min="09:00"
+          max="17:00"
+          required
+        />
+      </div>
+      <div id="Reason">
+        <label for="appointmentReason"> Reason </label>
+        <select id="appointmentReason" type="text" required>
+          <option [value]="reason" *ngFor="let reason of reasonList">
+            {{ reason }}
+          </option>
+        </select>
+      </div>
+      <div id="Comment">
+        <label for="appointmentComment"> Comment </label>
+        <textarea id="appointmentComment"></textarea>
+        <div class="buttons">
+          <div class="button-cancel" type="reset" (click)="closeModal()">
+            Cancel
+          </div>
+          <div class="button" type="submit">Confirm</div>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

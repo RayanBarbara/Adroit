@@ -1,7 +1,15 @@
+@import './app/styles/variables.scss';
+
 * {
   margin: 0;
   font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  h1 {
+    font-size: 30px;
+    border-bottom: solid 3px $blue-light;
+  }
 }
 body {
   height: 100vh;
+  background: linear-gradient(#267bcf, #6b32d4, white 300px);
 }
