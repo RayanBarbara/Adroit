@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Appointment } from 'src/assets/resources/appointment';
 
 @Component({
   selector: 'app-ask-appointement',
@@ -13,10 +14,20 @@ export class AskAppointementComponent implements OnInit {
   @Output() closeModalEvent = new EventEmitter<boolean>();
   constructor() {}
 
-  ngOnInit(): void {}
+  appointment = {
+    reason: '',
+    requestedPeriod: {
+      hour: '',
+    }
+  };
 
-  addAppointment() {
-    console.log()
+  ngOnInit(): void {
+    
+  }
+ 
+  send(){
+    console.log(this.appointment);
+    // TODO : Ajouter post de l'appointment
   }
 
   closeModal() {
