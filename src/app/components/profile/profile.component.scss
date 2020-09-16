@@ -38,6 +38,7 @@
     .patient-data {
       height: 400px;
       flex-wrap: nowrap;
+      overflow: auto;
     }
   }
 }
