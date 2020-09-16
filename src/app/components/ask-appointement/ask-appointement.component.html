@@ -1,47 +1,32 @@
 <div>
   <div id="Appointment" class="modal" (clickOutside)="closeModal()">
     <h2>Take appointment with Dr. [ Add name here ]</h2>
-    <form (submit)="send()">
+    <form>
       <div>
         <label for="appointmentDate">Date </label>
-        <input id="appointmentDate" type="date" required />
+        <input id="appointmentDate" type="date" name="date" [(ngModel)]="appointment.requestedPeriod.date" required />
       </div>
       <div>
         <label for="appointmentHour"> Time </label>
-        <input
-          id="appointmentHour"
-          [(ngModel)]="appointment.requestedPeriod.hour"
-          type="time"
-          min="09:00"
-          max="17:00"
-          required
-        />
+        <input id="appointmentHour" name="hour" [(ngModel)]="appointment.requestedPeriod.hour" type="time" min="09:00" max="17:00"
+          required />
       </div>
       <div id="Reason">
         <label for="appointmentReason"> Reason </label>
-        <select
-          id="appointmentReason"
-          type="text"
-          [(ngModel)]="appointment.reason"
-          required
-        >
-          <option
-            [value]="reason"
-            *ngFor="let reason of reasonList"
-            [ngValue]="reason"
-          >
+        <select id="appointmentReason" type="text" [(ngModel)]="appointment.reason" name="reason" required>
+          <option [value]="reason" *ngFor="let reason of reasonList" [ngValue]="reason">
             {{ reason }}
           </option>
         </select>
       </div>
       <div id="Comment">
         <label for="appointmentComment"> Comment </label>
-        <textarea id="appointmentComment"></textarea>
+        <textarea id="appointmentComment" name="comment" [(ngModel)]="appointment.comment"></textarea>
         <div class="buttons">
           <div class="button-cancel" type="reset" (click)="closeModal()">
             Cancel
           </div>
-          <div class="button" type="submit">Confirm</div>
+          <div class="button" type="submit" (click)="send()">Confirm</div>
         </div>
       </div>
     </form>
