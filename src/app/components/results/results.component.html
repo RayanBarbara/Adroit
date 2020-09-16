@@ -1,4 +1,27 @@
 <div class="button" (click)="navigate('profile')">Back to profile</div>
+<div class="results">
+  <table>
+    <thead>
+      <tr>
+        <td>Date</td>
+        <td>Name</td>
+        <td>Reason</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let result of observations"
+        (click)="selectObservation(result)"
+      >
+        <td>{{ result.effectiveDateTime | date }}</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="no-result" *ngIf="selectedObservation === null">&nbsp;</div>
+<div class="result" *ngIf="selectedObservation !== null">;</div>
 <div class="button" (click)="askForAnAppointment()">ask Appointment</div>
 <app-ask-appointement
   *ngIf="askAppointment"

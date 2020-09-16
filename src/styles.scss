@@ -6,11 +6,11 @@
   font-size: 20px;
   h1 {
     font-size: 30px;
-    border-bottom: solid 3px $blue-light;
+    border-bottom: solid 3px #29b58d;
   }
 }
 body {
   height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0) 150px, $grey-light 150px),
-    linear-gradient(50deg, #267bcf, #6b32d4);
+    linear-gradient(50deg, #1405ff, #2ac383);
 }

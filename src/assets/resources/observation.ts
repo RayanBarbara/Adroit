@@ -1,5 +1,4 @@
 import { Code } from './code';
-import { Patient } from './patient';
 
 export class Observation {
   resourceType: string;
@@ -9,10 +8,12 @@ export class Observation {
   status: Code;
   category: any[];
   code: any;
-  subject: Patient;
+  subject: {
+    reference: string;
+  };
   focus: any[];
   encounter: any;
-  effectiveDateTime: any;
+  effectiveDateTime: string;
   effectivePeriod: any;
   effectiveTiming: any;
   effectiveInstant: any;

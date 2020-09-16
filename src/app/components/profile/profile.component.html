@@ -31,4 +31,10 @@
 </div>
 <div class="nav">
   <div class="button" (click)="navigate('results')">See exams and results</div>
+  <div class="button" (click)="askForAnAppointment()">Make an appointment</div>
 </div>
+
+<app-ask-appointement
+  *ngIf="askAppointment"
+  (closeModalEvent)="askForAnAppointment()"
+></app-ask-appointement>

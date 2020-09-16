@@ -34,6 +34,7 @@ export class RestService {
       .toPromise()
       .catch(this.handleError);
   }
+
   getPractitioner(): Promise<Practitioner> {
     return this.http
       .get(this.server + 'practitioner/' + this.gpID[1])
