@@ -1,10 +1,9 @@
-<div class="button" (click)="navigate('profile')">Back to profile</div>
 <div class="results">
   <table>
     <thead>
       <tr>
         <td>Date</td>
-        <td>Name</td>
+        <td>Practitioner</td>
         <td>Reason</td>
       </tr>
     </thead>
@@ -14,15 +13,42 @@
         (click)="selectObservation(result)"
       >
         <td>{{ result.effectiveDateTime | date }}</td>
-        <td></td>
-        <td></td>
+        <td>
+          {{ result.performer[0].practitioner?.name[0].prefix }}
+          {{ result.performer[0].practitioner?.name[0].family }}
+        </td>
+        <td>{{ result.category[0].coding[0].display }}</td>
       </tr>
     </tbody>
   </table>
 </div>
 <div class="no-result" *ngIf="selectedObservation === null">&nbsp;</div>
-<div class="result" *ngIf="selectedObservation !== null">;</div>
-<div class="button" (click)="askForAnAppointment()">ask Appointment</div>
+<div class="result" *ngIf="selectedObservation !== null">
+  <p>
+    Examination : {{ selectedObservation.category[0].coding[0].display }}<br />
+    Date : {{ selectedObservation.effectiveDateTime | date }} <br />
+    Examination n° : {{ selectedObservation.id }}
+  </p>
+  <h1>Results</h1>
+  <div>
+    <b>{{ selectedObservation.valueQuantity.unit }} : </b>
+    {{ selectedObservation.valueQuantity.value }}
+    {{ selectedObservation.valueQuantity.unit }}
+  </div>
+  <h1>Comments</h1>
+  <p>{{ selectedObservation.category[0].text }}</p>
+  <div class="spacer">&nbsp;</div>
+  <p class="validation">
+    Validated by
+    {{ selectedObservation.performer[0].practitioner.name[0].prefix }}
+    {{ selectedObservation.performer[0].practitioner.name[0].given[0] }}
+    {{ selectedObservation.performer[0].practitioner.name[0].family }}
+  </p>
+</div>
+<div class="nav">
+  <div class="button-cancel" (click)="navigate('profile')">Back to profile</div>
+  <div class="button" (click)="askForAnAppointment()">Make an appointment</div>
+</div>
 <app-ask-appointement
   *ngIf="askAppointment"
   (closeModalEvent)="askForAnAppointment()"

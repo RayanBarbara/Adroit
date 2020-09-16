@@ -2,6 +2,16 @@
 
 :host {
   flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .button {

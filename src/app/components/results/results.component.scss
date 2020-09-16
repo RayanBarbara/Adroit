@@ -2,9 +2,6 @@
 @import '../../styles/variables.scss';
 
 :host {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
   .results {
     margin: 20px 0;
     width: 100%;
@@ -12,6 +9,7 @@
     table {
       width: 100%;
       border-collapse: collapse;
+      background: white;
       thead,
       td {
         text-align: left;
@@ -26,6 +24,7 @@
         overflow: scroll;
         tr:hover {
           background-color: #dddddd;
+          cursor: pointer;
         }
       }
       tr:nth-child(even) {
@@ -36,10 +35,19 @@
   .result {
     flex-grow: 1;
     background-color: white;
+    display: flex;
+    flex-direction: column;
     box-shadow: $shadow;
     margin-bottom: 20px;
     border-radius: 5px;
     padding: 20px;
+    .spacer {
+      flex-grow: 1;
+    }
+    .validation {
+      align-self: flex-end;
+      justify-self: flex-end;
+    }
   }
   .no-result {
     flex-grow: 1;
