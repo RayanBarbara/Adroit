@@ -48,4 +48,10 @@ export class RestService {
       .toPromise()
       .catch(this.handleError);
   }
+
+  postAppointment(appointment: any) {
+    return this.http.post(this.server + "appointment", appointment, {
+      headers: { 'Content-Type': 'application/json' }
+    })
+  }
 }

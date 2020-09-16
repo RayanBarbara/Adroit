@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Appointment } from 'src/assets/resources/appointment';
+import { DateTimePipe } from 'src/app/utils/pipes/dateTime.pipe';
 
 
 @Component({
@@ -10,19 +11,25 @@ import { Appointment } from 'src/assets/resources/appointment';
 export class AskAppointementComponent implements OnInit {
   canClose = false;
   reasonList = ['Consultation de suivi', 'Retour examen', 'Premiere consultation'];
+  priorityList = [0, 1, 2, 3, 4, 5];
 
 
   @Output() closeModalEvent = new EventEmitter<boolean>();
   constructor() { }
 
+  date: string;
+  hour: string;
+  numberOfAppointment: number;
 
   appointment = {
-    id: '',
     reason: '',
+    ressourceType: 'Appointment',
+    priority: null,
     comment: '',
+    minuteDuration: 30,
     requestedPeriod: {
-      date: '',
-      hour: ''
+      start: '',
+      end: ''
     }
   };
 
@@ -31,8 +38,18 @@ export class AskAppointementComponent implements OnInit {
   }
 
   send() {
+    this.appointment.requestedPeriod.start = this.transformDate(this.date, this.hour);
     console.log(this.appointment);
     // TODO : Ajouter post de l'appointment
+  }
+
+  transformDate(date: string, hour: string) {
+    return date + 'T' + hour + ':00Z'
+  }
+
+  addHour(hour: string) {
+    const duration = 30;
+
   }
 
   closeModal() {
