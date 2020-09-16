@@ -26,6 +26,12 @@ export class AppComponent {
             return true;
           else return false;
         });
+        this.observation.forEach((obs) => {
+          const id = obs.performer[0].reference.replace('practitioner/', '');
+          this.service.getPractitioner(id).then((practitioner) => {
+            obs.performer[0].practitioner = practitioner;
+          });
+        });
         console.log(this.observation);
       });
     });

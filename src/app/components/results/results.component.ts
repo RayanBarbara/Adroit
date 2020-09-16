@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observation } from '../../../assets/resources/observation';
-import { Practitioner } from '../../../assets/resources/patient';
 import { RestService } from '../../services/rest.service';
 
 @Component({
@@ -26,16 +25,7 @@ export class ResultsComponent implements OnInit {
       this.selectedObservation = null;
     }
   }
-  async performer(performerID: string) {
-    const id = performerID.replace('Practitioner/', '');
-    let name;
-    await this.service
-      .getPractitioner(id)
-      .then((Practitioner: Practitioner) => {
-        name = Practitioner.name[0].prefix + ' ' + Practitioner.name[0].family;
-      });
-    return name;
-  }
+
   navigate(page: string) {
     this.page.emit(page);
   }

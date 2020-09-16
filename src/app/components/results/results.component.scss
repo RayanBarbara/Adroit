@@ -27,6 +27,7 @@
         overflow: scroll;
         tr:hover {
           background-color: #dddddd;
+          cursor: pointer;
         }
       }
       tr:nth-child(even) {

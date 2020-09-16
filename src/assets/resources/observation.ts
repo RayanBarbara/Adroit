@@ -1,6 +1,8 @@
 import { Code } from './code';
+import { Practitioner } from './patient';
 
 export class Observation {
+  id: string;
   resourceType: string;
   identifier: any[];
   basedOn: any[];
@@ -19,7 +21,7 @@ export class Observation {
   effectiveInstant: any;
   issued: any;
   performer: Performer[];
-  valueQuantity: any;
+  valueQuantity: valueQuantity;
   valueCodeableConcept: any;
   valueString: string;
   valueBoolean: boolean;
@@ -72,16 +74,23 @@ export class Observation {
 
 class Category {
   coding: Coding[];
+  text: string;
 }
 
 class Coding {
-  System: string;
-  Code: string;
-  Display: string;
+  system: string;
+  code: string;
+  display: string;
 }
 
 class Performer {
-  actor: {
-    reference: string;
-  };
+  reference: string;
+  practitioner: Practitioner;
+}
+
+class valueQuantity {
+  value: number;
+  unit: string;
+  system: string;
+  code: string;
 }
