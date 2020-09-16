@@ -16,7 +16,7 @@ export class AskAppointementComponent implements OnInit {
   priorityList = [0, 1, 2, 3, 4, 5];
 
   @Output() closeModalEvent = new EventEmitter<boolean>();
-  constructor(private service: RestService) {}
+  constructor(private service: RestService) { }
 
   date: string;
   hour: string;
@@ -25,7 +25,8 @@ export class AskAppointementComponent implements OnInit {
   comment: string;
   priority: number;
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
   send() {
     let appointement = {
       description: this.description,
@@ -57,6 +58,11 @@ export class AskAppointementComponent implements OnInit {
     this.service.postAppointment(appointement).then((response) => {
       console.log(response);
     });
+    if (this.canClose === true) {
+      this.closeModalEvent.emit(false);
+    } else {
+      this.canClose = true;
+    }
   }
 
   transformDate(date: string, hour: string) {
