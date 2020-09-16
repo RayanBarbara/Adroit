@@ -4,7 +4,7 @@
     <form>
       <div>
         <label for="appointmentDate">Date </label>
-        <input id="appointmentDate" type="date" required />
+        <input id="appointmentDate" type="date" name="date" [(ngModel)]="appointment.requestedPeriod.date" required />
       </div>
       <div>
         <label for="appointmentHour"> Time </label>
