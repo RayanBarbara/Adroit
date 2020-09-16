@@ -25,3 +25,19 @@
     flex-grow: 1;
   }
 }
+
+@media only screen and (max-width: 1000px) {
+  :host {
+    .patient-data {
+      height: 300px;
+    }
+  }
+}
+@media only screen and (max-width: 650px) {
+  :host {
+    .patient-data {
+      height: 400px;
+      flex-wrap: nowrap;
+    }
+  }
+}
