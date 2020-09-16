@@ -1,23 +1,17 @@
-import { Code } from './code';
 export class Appointment {
     id: string;
-    requestedPeriod: Period;
-    reason: string;
+    description: string;
     comment: string;
-    participant: Participant[]
+    participant: Actor[]
+    requestedPeriod: Period;
 }
 
-class Participant {
-    idParticipant: string;
-    role: Role;
-}
-
-enum Role {
-    "Patient",
-    "Practiciant"
+class Actor {
+    reference: string;
+    display: string;
 }
 
 class Period {
-    date: string;
-    hour: string;
+    start: string;
+    end: string;
 }

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Appointment } from 'src/assets/resources/appointment';
 
+
 @Component({
   selector: 'app-ask-appointement',
   templateUrl: './ask-appointement.component.html',
@@ -14,13 +15,15 @@ export class AskAppointementComponent implements OnInit {
   @Output() closeModalEvent = new EventEmitter<boolean>();
   constructor() { }
 
+
   appointment = {
+    id: '',
+    reason: '',
+    comment: '',
     requestedPeriod: {
       date: '',
-      hour: '',
-    },
-    reason: '',
-    comment: ''
+      hour: ''
+    }
   };
 
   ngOnInit(): void {
