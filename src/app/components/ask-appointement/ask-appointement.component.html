@@ -1,7 +1,7 @@
 <div>
   <div id="Appointment" class="modal" (clickOutside)="closeModal()">
     <h2>Take appointment with Dr. [ Add name here ]</h2>
-    <form>
+    <form (submit)="send()">
       <div>
         <label for="appointmentDate">Date </label>
         <input id="appointmentDate" type="date" name="date" [(ngModel)]="date" required />
@@ -26,10 +26,10 @@
         <label for="appointmentComment"> Comment </label>
         <textarea id="appointmentComment" name="comment" [(ngModel)]="comment"></textarea>
         <div class="buttons">
-          <div class="button-cancel" (click)="closeModal()">
+          <button class="button-cancel" (click)="closeModal()">
             Cancel
-          </div>
-          <div class="button" (click)="send()">Confirm</div>
+          </button>
+          <button class="button" type="submit">Confirm</button>
         </div>
       </div>
     </form>
