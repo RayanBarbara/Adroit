@@ -1,6 +1,8 @@
 <div>
   <div id="Appointment" class="modal" (clickOutside)="closeModal()">
-    <h2>Take appointment with Dr. [ Add name here ]</h2>
+    <h2>Take appointment with {{ practitioner.name[0].prefix }} {{ practitioner.name[0].family }} {{ practitioner.name[0].given[0]
+      }}
+    </h2>
     <form (submit)="send()">
       <div>
         <label for="appointmentDate">Date </label>

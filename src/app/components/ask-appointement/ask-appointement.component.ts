@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { RestService } from '../../services/rest.service';
+import { Practitioner } from '../../../assets/resources/patient';
 
 @Component({
   selector: 'app-ask-appointement',
@@ -16,6 +17,7 @@ export class AskAppointementComponent implements OnInit {
   priorityList = [0, 1, 2, 3, 4, 5];
 
   @Output() closeModalEvent = new EventEmitter<boolean>();
+  @Input() practitioner: Practitioner;
   constructor(private service: RestService) { }
 
   date: string;
