@@ -23,10 +23,10 @@
         <label for="appointmentComment"> Comment </label>
         <textarea id="appointmentComment" name="comment" [(ngModel)]="appointment.comment"></textarea>
         <div class="buttons">
-          <div class="button-cancel" type="reset" (click)="closeModal()">
+          <div class="button-cancel" (click)="closeModal()">
             Cancel
           </div>
-          <div class="button" type="submit" (click)="send()">Confirm</div>
+          <div class="button" (click)="send()">Confirm</div>
         </div>
       </div>
     </form>
