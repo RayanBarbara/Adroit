@@ -2,9 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observation } from '../../assets/resources/observation';
 import { Patient, Practitioner } from '../../assets/resources/patient';
-import { Appointment } from 'src/assets/resources/appointment';
-import { Promise } from 'protractor/node_modules/@types/q';
-import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +10,7 @@ export class RestService {
   server = 'https://fhir.eole-consulting.io/api/';
   patientID = '5f5f85553ef92800151f13a7';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   private handleError(error: any): Promise<any> {
     if (error !== null) {
@@ -51,8 +48,10 @@ export class RestService {
   }
 
   postAppointment(appointment: any): Promise<any> {
-    return this.http.post(this.server + "appointment", appointment, {
-      headers: { 'Content-Type': 'application/json' }
-    }).toPromise();
+    return this.http
+      .post(this.server + 'appointment', appointment, {
+        headers: { 'Content-Type': 'application/json' },
+      })
+      .toPromise();
   }
 }
