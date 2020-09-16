@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observation } from '../../../assets/resources/observation';
 import { RestService } from '../../services/rest.service';
+import { Practitioner } from '../../../assets/resources/patient';
 
 @Component({
   selector: 'app-results',
@@ -9,11 +10,12 @@ import { RestService } from '../../services/rest.service';
 })
 export class ResultsComponent implements OnInit {
   @Input() observations: Observation[];
+  @Input() practitioner: Practitioner;
   @Output() page = new EventEmitter<string>();
   askAppointment = false;
   selectedObservation: Observation = null;
 
-  constructor(private service: RestService) {}
+  constructor(private service: RestService) { }
 
   askForAnAppointment() {
     this.askAppointment = !this.askAppointment;
@@ -29,5 +31,5 @@ export class ResultsComponent implements OnInit {
   navigate(page: string) {
     this.page.emit(page);
   }
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

@@ -1,32 +1,32 @@
 <h1>Patient profile</h1>
 <div class="patient-data">
   <img [src]="avatar" />
-  <span><b>Lastname :</b> {{ patient.name[0].family }}</span>
-  <span><b>Firstname :</b> {{ patient.name[0].given[0] }}</span>
-  <span><b>Birthdate :</b> {{ patient.birthDate | date }}</span>
-  <span><b>Gender :</b> {{ patient.gender }}</span>
-  <span><b>id :</b> {{ patient.id }}</span>
-  <span
-    ><b>Addresses :</b>
+  <span>
+    <b>Lastname :</b> {{ patient.name[0].family }}</span>
+  <span>
+    <b>Firstname :</b> {{ patient.name[0].given[0] }}</span>
+  <span>
+    <b>Birthdate :</b> {{ patient.birthDate | date }}</span>
+  <span>
+    <b>Gender :</b> {{ patient.gender }}</span>
+  <span>
+    <b>id :</b> {{ patient.id }}</span>
+  <span>
+    <b>Addresses :</b>
     <ul>
       <li *ngFor="let address of patient.address">
-        <span *ngFor="let line of address.line">{{ line }}<br /></span
-        >{{ address.postalCode }} {{ address.city }}
+        <span *ngFor="let line of address.line">{{ line }}
+          <br />
+        </span>{{ address.postalCode }} {{ address.city }}
       </li>
-    </ul></span
-  >
+    </ul>
+  </span>
 </div>
 <h1>General practitioner</h1>
 <div class="practitioners">
   <div>
-    <img
-      src="../../../assets/resources/avatar_femme.svg"
-      width="75px"
-      height="75px"
-    />
-    {{ practitioner.name[0].prefix }} {{ practitioner.name[0].family }}
-    {{ practitioner.name[0].given[0] }}
-    {{ practitioner.qualification[0].code.coding[0].display }}
+    <img src="../../../assets/resources/avatar_femme.svg" width="75px" height="75px" /> {{ practitioner.name[0].prefix }} {{ practitioner.name[0].family }} {{ practitioner.name[0].given[0] }} {{ practitioner.qualification[0].code.coding[0].display
+    }}
   </div>
 </div>
 <div class="nav">
@@ -34,7 +34,4 @@
   <div class="button" (click)="askForAnAppointment()">Make an appointment</div>
 </div>
 
-<app-ask-appointement
-  *ngIf="askAppointment"
-  (closeModalEvent)="askForAnAppointment()"
-></app-ask-appointement>
+<app-ask-appointement *ngIf="askAppointment" [practitioner]="practitioner" (closeModalEvent)="askForAnAppointment()"></app-ask-appointement>
