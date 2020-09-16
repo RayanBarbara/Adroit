@@ -10,21 +10,21 @@
         <label for="appointmentHour"> Time </label>
         <input id="appointmentHour" name="hour" [(ngModel)]="hour" type="time" min="09:00" max="17:00" required />
       </div>
-      <div id="Reason">
-        <label for="appointmentReason"> Reason </label>
-        <select id="appointmentReason" type="text" [(ngModel)]="appointment.reason" name="reason" required>
-          <option [value]="reason" *ngFor="let reason of reasonList" [ngValue]="reason">{{ reason }} </option>
+      <div id="Description">
+        <label for="appointmentDescription"> Reason </label>
+        <select id="appointmentdescription" type="text" [(ngModel)]="description" name="description" required>
+          <option [value]="description" *ngFor="let description of descriptionList" [ngValue]="description">{{ description }} </option>
         </select>
       </div>
       <div id="Priority">
         <label for="appointmentPriority">Priority</label>
-        <select id="appointmentPriority" type="text" [(ngModel)]="appointment.priority" name="priority" required>
+        <select id="appointmentPriority" type="text" [(ngModel)]="priority" name="priority" required>
           <option [value]="priority" *ngFor="let priority of priorityList" [ngValue]="priority">{{priority}}</option>
         </select>
       </div>
       <div id="Comment">
         <label for="appointmentComment"> Comment </label>
-        <textarea id="appointmentComment" name="comment" [(ngModel)]="appointment.comment"></textarea>
+        <textarea id="appointmentComment" name="comment" [(ngModel)]="comment"></textarea>
         <div class="buttons">
           <div class="button-cancel" (click)="closeModal()">
             Cancel

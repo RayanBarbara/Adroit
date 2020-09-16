@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Appointment } from 'src/assets/resources/appointment';
 import { DateTimePipe } from 'src/app/utils/pipes/dateTime.pipe';
+import { RestService } from '../../services/rest.service';
 
 
 @Component({
@@ -10,37 +11,53 @@ import { DateTimePipe } from 'src/app/utils/pipes/dateTime.pipe';
 })
 export class AskAppointementComponent implements OnInit {
   canClose = false;
-  reasonList = ['Consultation de suivi', 'Retour examen', 'Premiere consultation'];
+  descriptionList = ['Consultation de suivi', 'Retour examen', 'Premiere consultation'];
   priorityList = [0, 1, 2, 3, 4, 5];
 
 
   @Output() closeModalEvent = new EventEmitter<boolean>();
-  constructor() { }
+  constructor(private service: RestService) {
+  }
 
   date: string;
   hour: string;
   numberOfAppointment: number;
+  description: string;
+  comment: string;
+  priority: number;
 
-  appointment = {
-    reason: '',
-    ressourceType: 'Appointment',
-    priority: null,
-    comment: '',
-    minuteDuration: 30,
-    requestedPeriod: {
-      start: '',
-      end: ''
-    }
-  };
 
   ngOnInit(): void {
 
   }
-
   send() {
-    this.appointment.requestedPeriod.start = this.transformDate(this.date, this.hour);
-    console.log(this.appointment);
-    // TODO : Ajouter post de l'appointment
+    let appointement = {
+      "description": this.description,
+      "resourceType": "Appointment",
+      "comment": this.comment,
+      "priority": this.priority,
+      "minuteDuration": 30,
+      "participant": [
+        {
+          "actor": {
+            "reference": "Patient/5f5f85553ef92800151f13a7",
+            "display": "Julien Mari"
+          }
+        },
+        {
+          "actor": {
+            "reference": "Medecin/magicSystem2020",
+            "display": "Tsague Kevin"
+          }
+        }
+      ],
+      "requestedPeriod":
+        {
+          "start": this.transformDate(this.date, this.hour),
+          "end": ""
+        }
+    };
+    this.service.postAppointment(appointement).then((response) => { console.log(response) });
   }
 
   transformDate(date: string, hour: string) {
@@ -49,7 +66,6 @@ export class AskAppointementComponent implements OnInit {
 
   addHour(hour: string) {
     const duration = 30;
-
   }
 
   closeModal() {

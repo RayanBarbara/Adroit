@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observation } from '../../assets/resources/observation';
 import { Patient, Practitioner } from '../../assets/resources/patient';
 import { Appointment } from 'src/assets/resources/appointment';
+import { Promise } from 'protractor/node_modules/@types/q';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root',
@@ -49,9 +51,9 @@ export class RestService {
       .catch(this.handleError);
   }
 
-  postAppointment(appointment: any) {
+  postAppointment(appointment: any): Promise<any> {
     return this.http.post(this.server + "appointment", appointment, {
       headers: { 'Content-Type': 'application/json' }
-    })
+    }).toPromise();
   }
 }
