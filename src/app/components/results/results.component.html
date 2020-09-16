@@ -4,7 +4,7 @@
     <thead>
       <tr>
         <td>Date</td>
-        <td>Name</td>
+        <td>Practitioner</td>
         <td>Reason</td>
       </tr>
     </thead>
@@ -14,15 +14,15 @@
         (click)="selectObservation(result)"
       >
         <td>{{ result.effectiveDateTime | date }}</td>
-        <td></td>
-        <td></td>
+        <td>{{ performer(result.performer[0].actor.reference) }}</td>
+        <td>{{ result.category[0].coding[0].Display }}</td>
       </tr>
     </tbody>
   </table>
 </div>
 <div class="no-result" *ngIf="selectedObservation === null">&nbsp;</div>
 <div class="result" *ngIf="selectedObservation !== null">;</div>
-<div class="button" (click)="askForAnAppointment()">ask Appointment</div>
+<div class="button" (click)="askForAnAppointment()">Make an appointment</div>
 <app-ask-appointement
   *ngIf="askAppointment"
   (closeModalEvent)="askForAnAppointment()"

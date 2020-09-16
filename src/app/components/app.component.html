@@ -4,4 +4,8 @@
   [practitioner]="practitioner"
   (page)="navigate($event)"
 ></app-profile>
-<app-results *ngIf="page === 'results'" (page)="navigate($event)"></app-results>
+<app-results
+  *ngIf="page === 'results'"
+  [observations]="observation"
+  (page)="navigate($event)"
+></app-results>

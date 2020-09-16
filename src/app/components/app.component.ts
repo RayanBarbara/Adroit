@@ -21,16 +21,15 @@ export class AppComponent {
       await delay(0);
       this.page = 'profile';
       service.getObservation().then((observation) => {
-        console.log(observation);
         this.observation = observation.filter((obs) => {
-          if (obs.subject.reference == 'patient/' + this.patient.id)
+          if (obs.subject.reference == 'Patient/' + this.patient.id)
             return true;
           else return false;
         });
         console.log(this.observation);
       });
     });
-    service.getPractitioner().then((practitioner) => {
+    service.getPractitioner('magicSystem2020').then((practitioner) => {
       this.practitioner = practitioner;
     });
   }

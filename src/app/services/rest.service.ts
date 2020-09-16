@@ -9,7 +9,6 @@ import { Patient, Practitioner } from '../../assets/resources/patient';
 export class RestService {
   server = 'https://fhir.eole-consulting.io/api/';
   patientID = '5f5f85553ef92800151f13a7';
-  gpID = ['5f5f82fe3ef92800151f13a6', 'magicSystem2020'];
 
   constructor(private http: HttpClient) {}
 
@@ -34,9 +33,9 @@ export class RestService {
       .catch(this.handleError);
   }
 
-  getPractitioner(): Promise<Practitioner> {
+  getPractitioner(practitionerID: string): Promise<Practitioner> {
     return this.http
-      .get(this.server + 'practitioner/' + this.gpID[1])
+      .get(this.server + 'practitioner/' + practitionerID)
       .toPromise()
       .catch(this.handleError);
   }

@@ -6,7 +6,7 @@ export class Observation {
   basedOn: any[];
   partOf: any[];
   status: Code;
-  category: any[];
+  category: Category[];
   code: any;
   subject: {
     reference: string;
@@ -18,7 +18,7 @@ export class Observation {
   effectiveTiming: any;
   effectiveInstant: any;
   issued: any;
-  performer: any[];
+  performer: Performer[];
   valueQuantity: any;
   valueCodeableConcept: any;
   valueString: string;
@@ -68,4 +68,20 @@ export class Observation {
       referenceRange: any[];
     }
   ];
+}
+
+class Category {
+  coding: Coding[];
+}
+
+class Coding {
+  System: string;
+  Code: string;
+  Display: string;
+}
+
+class Performer {
+  actor: {
+    reference: string;
+  };
 }
