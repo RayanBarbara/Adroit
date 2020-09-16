@@ -77,8 +77,8 @@ class Adress {
 }
 
 export enum Gender {
-  'male',
-  'female',
+  male = 'male',
+  female = 'female',
 }
 
 enum resourceType {

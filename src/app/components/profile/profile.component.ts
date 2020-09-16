@@ -16,6 +16,10 @@ export class ProfileComponent implements OnInit {
   @Output() page = new EventEmitter<string>();
   avatar = '../../../assets/resources/avatar_homme.svg';
 
+  askAppointment = false;
+  askForAnAppointment() {
+    this.askAppointment = !this.askAppointment;
+  }
   constructor() {
     if (this.patient && this.patient.gender === Gender['female']) {
       this.avatar = '../../assets/resources/avatar_femme.svg';

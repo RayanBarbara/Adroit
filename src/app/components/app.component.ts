@@ -20,16 +20,18 @@ export class AppComponent {
       this.patient = patient;
       await delay(0);
       this.page = 'profile';
+      service.getObservation().then((observation) => {
+        console.log(observation);
+        this.observation = observation.filter((obs) => {
+          if (obs.subject.reference == 'patient/' + this.patient.id)
+            return true;
+          else return false;
+        });
+        console.log(this.observation);
+      });
     });
     service.getPractitioner().then((practitioner) => {
       this.practitioner = practitioner;
-    });
-    service.getObservation().then((observation) => {
-      console.log(observation);
-      this.observation = observation.filter((obs) => {
-        obs.subject.id === this.patient.id;
-      });
-      console.log(this.observation);
     });
   }
 
