@@ -1,4 +1,3 @@
-<div class="button" (click)="navigate('profile')">Back to profile</div>
 <div class="results">
   <table>
     <thead>
@@ -35,7 +34,10 @@
   <h1>Comments</h1>
   <p>{{ selectedObservation.category[0].text }}</p>
 </div>
-<div class="button" (click)="askForAnAppointment()">Make an appointment</div>
+<div class="nav">
+  <div class="button-cancel" (click)="navigate('profile')">Back to profile</div>
+  <div class="button" (click)="askForAnAppointment()">Make an appointment</div>
+</div>
 <app-ask-appointement
   *ngIf="askAppointment"
   (closeModalEvent)="askForAnAppointment()"

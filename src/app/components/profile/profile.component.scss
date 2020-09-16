@@ -2,7 +2,6 @@
 @import '../../styles/variables.scss';
 
 :host {
-  padding: 20px;
   .patient-data {
     margin: 20px;
     box-shadow: $shadow;
@@ -23,11 +22,6 @@
   }
   .practitioners {
     margin: 20px;
-  }
-  .nav {
-    margin: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-grow: 1;
   }
 }
