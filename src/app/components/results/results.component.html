@@ -30,9 +30,20 @@
     Examination n° : {{ selectedObservation.id }}
   </p>
   <h1>Results</h1>
-  <div>{{ selectedObservation.valueQuantity.system }}</div>
+  <div>
+    <b>{{ selectedObservation.valueQuantity.unit }} : </b>
+    {{ selectedObservation.valueQuantity.value }}
+    {{ selectedObservation.valueQuantity.unit }}
+  </div>
   <h1>Comments</h1>
   <p>{{ selectedObservation.category[0].text }}</p>
+  <div class="spacer">&nbsp;</div>
+  <p class="validation">
+    Validated by
+    {{ selectedObservation.performer[0].practitioner.name[0].prefix }}
+    {{ selectedObservation.performer[0].practitioner.name[0].given[0] }}
+    {{ selectedObservation.performer[0].practitioner.name[0].family }}
+  </p>
 </div>
 <div class="nav">
   <div class="button-cancel" (click)="navigate('profile')">Back to profile</div>

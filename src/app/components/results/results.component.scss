@@ -35,10 +35,19 @@
   .result {
     flex-grow: 1;
     background-color: white;
+    display: flex;
+    flex-direction: column;
     box-shadow: $shadow;
     margin-bottom: 20px;
     border-radius: 5px;
     padding: 20px;
+    .spacer {
+      flex-grow: 1;
+    }
+    .validation {
+      align-self: flex-end;
+      justify-self: flex-end;
+    }
   }
   .no-result {
     flex-grow: 1;
