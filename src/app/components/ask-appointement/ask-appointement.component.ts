@@ -8,24 +8,26 @@ import { Appointment } from 'src/assets/resources/appointment';
 })
 export class AskAppointementComponent implements OnInit {
   canClose = false;
-  reasonList=['Consultation de suivi', 'Retour examen', 'Premiere consultation'];
+  reasonList = ['Consultation de suivi', 'Retour examen', 'Premiere consultation'];
 
 
   @Output() closeModalEvent = new EventEmitter<boolean>();
-  constructor() {}
+  constructor() { }
 
   appointment = {
-    reason: '',
     requestedPeriod: {
+      date: '',
       hour: '',
-    }
+    },
+    reason: '',
+    comment: ''
   };
 
   ngOnInit(): void {
-    
+
   }
- 
-  send(){
+
+  send() {
     console.log(this.appointment);
     // TODO : Ajouter post de l'appointment
   }
