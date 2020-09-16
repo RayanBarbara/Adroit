@@ -10,7 +10,7 @@ export class RestService {
   server = 'https://fhir.eole-consulting.io/api/';
   patientID = '5f5f85553ef92800151f13a7';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   private handleError(error: any): Promise<any> {
     if (error !== null) {
@@ -52,6 +52,7 @@ export class RestService {
       .post(this.server + 'appointment', appointment, {
         headers: { 'Content-Type': 'application/json' },
       })
-      .toPromise();
+      .toPromise().then(response => response)
+      .catch(this.handleError);
   }
 }

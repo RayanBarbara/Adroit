@@ -29,31 +29,27 @@ export class AskAppointementComponent implements OnInit {
 
   send() {
     let appointement = {
-      description: this.description,
-      resourceType: 'Appointment',
-      comment: this.comment,
-      priority: this.priority,
-      minuteDuration: 30,
-      participant: [
+      "description": this.description,
+      "resourceType": "Appointment",
+      "comment": this.comment,
+      "priority": this.priority,
+      "participant": [
         {
-          actor: {
-            reference: 'Patient/5f5f85553ef92800151f13a7',
-            display: 'Julien Mari',
+          "actor": {
+            "reference": "Patient/5f5f85553ef92800151f13a7",
+            "display": "Julien Mari"
           },
+          "status": "needs-action"
         },
         {
-          actor: {
-            reference: 'Medecin/magicSystem2020',
-            display: 'Tsague Kevin',
+          "actor": {
+            "reference": "Practitioner/magicSystem2020",
+            "display": "Tsague Kevin"
           },
-        },
+          "status": "needs-action"
+        }
       ],
-      requestedPeriod: [
-        {
-          start: this.transformDate(this.date, this.hour),
-          end: this.transformDate(this.date, this.hour),
-        },
-      ],
+      "start": this.transformDate(this.date, this.hour)
     };
     this.service.postAppointment(appointement).then((response) => {
       console.log(response);
